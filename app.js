@@ -28,6 +28,7 @@ const screen = require('./mod/screen')
 const system = require('./mod/system')
 const lights = require('./mod/lights')
 // const touch = require('./mod/touch')
+const tower = require('./mod/tower')
 const socket = require('./mod/socket')
 
 
