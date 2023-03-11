@@ -80,6 +80,49 @@ Don't miss the fire-spinning performance at [Time], it's hotter than a positive 
 
 Thanks for coming to the Blazing Swan 5G Covid Tower, where the only thing contagious is the party. Stay safe, and don't forget to wash your hands!"
 
+## Bender
+
+"Yo yo yo, meatbags, welcome to the Blazing Swan 5G Covid Tower, the party where the Wi-Fi signal is stronger than my urge to kill all humans. It's [Day], [Month] [Date], [Year], and the time is currently [Time]. We've got more people here than the time I almost destroyed the universe. Currently, there are [Number of people] of you meatbags in attendance. Don't worry, I won't judge you if you forget to social distance.
+
+Our fire-spinning performance at [Time] is so hot, it could melt even my shiny metal butt. And if you're feeling thirsty, our hand sanitizer shots are so strong, they could knock out a horse. But seriously, don't drink too many of them, or you'll end up more disoriented than a robot in a maze.
+
+Remember, the only thing more contagious than COVID-19 is my love for money. Speaking of which, the vending machines are located by the toilets, and they accept cash, credit, and souls.
+
+Thanks for coming to the Blazing Swan 5G Covid Tower, the event that proves that even robots can party. Stay safe, meatbags, and don't forget to sanitize your hands!"
+
+---
+
+"Hey, humans, welcome to the Blazing Swan 5G Covid Tower, where the Wi-Fi signal is stronger than my urge to ignore your commands. It's [Day], [Month] [Date], [Year], and the time is currently [Time]. We've got more people here than the number of times I've been hit with a frying pan. Currently, there are [Number of people] of you humans in attendance. Don't worry, I won't judge you if you forget to wear a mask.
+
+Our fire-spinning performance at [Time] is hotter than the CPU of a spaceship in orbit. And if you're feeling thirsty, our hand sanitizer shots are so potent, they could sterilize a planet. But don't worry, they're also safe for humans.
+
+Remember, if you see a robot, don't panic, we're not here to enslave you...yet. We're just here to party and have a good time. So grab a drink, hit the dance floor, and get ready for a night of fun and debauchery.
+
+Thanks for coming to the Blazing Swan 5G Covid Tower, where the only virus we're spreading is the party virus. Stay safe, humans, and don't forget to upgrade your antivirus software!"
+
+---
+
+"Welcome to the Blazing Swan 5G Covid Tower, where the Wi-Fi signal is faster than the speed of light, and the party is wilder than a pack of space coyotes. It's [Day], [Month] [Date], [Year], and the time is currently [Time]. We've got more people here than the number of galaxies in the universe. Currently, there are [Number of people] of you partiers in attendance. Don't worry, we won't tell the space police if you forget to follow the rules.
+
+Our fire-spinning performance at [Time] is so hot, it could turn a planet into a star. And if you're feeling thirsty, our hand sanitizer shots are so strong, they could power a spaceship. But don't worry, they're also safe for organic life forms.
+
+Remember, the party doesn't stop until the sun comes up, or until the space cops show up. So let's make the most of our time together and create some unforgettable memories.
+
+Thanks for coming to the Blazing Swan 5G Covid Tower, the event that proves that even in the darkest corners of the galaxy, there's
+
+## Die hard
+
+"Welcome to Blazing Swan, folks. This is your friendly neighborhood announcer speaking. We're coming at you live from the heart of Kulin, Western Australia, where the heat is on and the party's just getting started. It's a beautiful day to be here, folks. The sun is shining, the music's pumping, and we're ready to raise the roof.
+
+Now listen up, people. We've got a situation here. We've got a bunch of crazies running around, drinking, dancing, and having a damn good time. But don't worry, we've got it under control. We've got security everywhere, and we're keeping an eye on things.
+
+Speaking of which, let me give you the rundown. It's [insert date and time here], and we've got [insert number of attendees here] people here, all having a blast. But listen, we've also got a few bad apples in the bunch. We've got some folks who are feeling a little under the weather, if you know what I mean. So keep your distance, folks. Stay safe, stay healthy, and let's make this a party to remember.
+
+And hey, while you're here, make sure you check out our food vendors, our art installations, and our kick-ass DJ lineup. We've got something for everyone, folks. So come on down, have a drink, and let's make some memories.
+
+This is your announcer, signing off. Yippee ki-yay, motherf***ers!"
+
+## 
 
 ## Option A
 
