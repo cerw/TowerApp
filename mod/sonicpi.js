@@ -66,6 +66,17 @@ function play(channel) {
   })
 }
 
+function sample(filename) {
+  //screen.log("SonicPI Play Channel : "+channel)
+  sonicSend({
+    address: "/play",
+    args: {
+      type: 'string',
+      value: filename
+    }
+  })
+}
+
 function motion(value) {
   //screen.log("SonicPI Monoti Channel : "+value)
   sonicSend({
@@ -94,5 +105,6 @@ module.exports.bind = bind
 module.exports.stop = stop
 module.exports.play = play
 module.exports.motion = motion
+module.exports.sample = sample
 
 
