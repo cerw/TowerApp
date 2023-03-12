@@ -51,6 +51,101 @@ The Remote Resource
 The Endemic Enclave
 The Wi-Fi Oasis
 The Germ-Free Gateway
+☕ CafeInternet ☕
+Ctrl-Alt-Defeat
+I'm Not a WiFi
+This Is Not Free Either
+No Free WiFi for You!
+Your Password is Blank
+I'm Watching You Now
+Do You Even Lift, WiFi?
+The Password Is 1234
+Pretty Fly for a WiFi
+Virus-Infected WiFi
+I Believe Wi Can Fi
+Get Off My LAN!
+Silence of the LANs
+Bill Wi, the Science Fi
+Drop It Like It's Hotspot
+Nacho WiFi
+No Wires, Still Problems
+The Promised LAN
+Wi-Fi Network? Why Not Zoidberg?
+Yell ______ for Password
+Not the WiFi You're Looking For
+Tell Your WiFi Love Her
+WiFi, She Told Me She Was Level 18
+Two Girls One Router
+A LANnister Always Surfs The Net
+The WiFi Next Door
+WiFi Art Thou Romeo
+The LAN Before Time
+It Burns When IP
+The Ping in the North
+Connect and Die
+Wi-Fi, Wi-Not?
+Help, I'm Trapped in a Router!
+Router? I Hardly Knew Her!
+John Wilkes Bluetooth
+My Wi-Fi Name is...
+I'm Under Your Bed
+Wi-Fight the Inevitable?
+The Internet? I Don't Know Her.
+Wi-Fi So Serious?
+The WiFi Connection Is Unstable
+Just Do It
+Virus Detected! Do Not Join
+Password is Gullible
+The Password is ThisIsNotThePassword
+You Pay Now
+Don't Even Try It
+Password: Protected
+FBI Surveillance Van
+You Shall Not Password
+Trust in God, But Protect Your WiFi
+Who Pooped in the Pool?
+Access Denied
+Pwned Network
+It's Not Me, It's You
+Join or Die
+Connection Interrupted
+Scary Terry's Internet
+JackPott
+Bandwidth Bandits
+Pineapple On Pizza
+Ransomware Island
+Enter Password Here _____
+Gimmie Yo Pizza
+Virus Infected Network
+Unsecured Wi-Fi
+My Neighbours Suck
+House LANister
+Happy-Fi
+The Dark Network Rises
+The Silence of the LANs
+The Password Is Password
+You're WiFired!
+It Hurts When IP
+The LAN Down Under
+WiFi-ght Club
+Who Let the Dogs Surf?
+Internet Troll House
+BlackHatsRUs
+Hodor's WiFi
+404 Network Unavailable
+Click Here for Viruses
+Get Your Own WiFi
+Find Nearby WiFi
+Pwned WiFi
+Banana Stand Money
+Toasted Breadsticks
+Instant Gratification
+Full Bars, No Service
+Virus Distribution Center
+Slow WiFi Network
+Poor WiFi Connection
+Not A Public Network
+StayOffMyWiFi
 ```
 
 # Announcements
