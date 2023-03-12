@@ -53,7 +53,7 @@ The Wi-Fi Oasis
 The Germ-Free Gateway
 ```
 
-# Accouncements
+# Announcements
 
 There could be shorts ones combine together, or few longs ones. 
 
