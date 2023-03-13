@@ -19,6 +19,9 @@
  ## Led 3 - C 
   http://192.168.30.111/
 
+## Power
+  http://192.168.30.111/
+
 
 # Content
 What will the machine say ?

@@ -126,8 +126,8 @@ var movies_sound_button = blessed.button({
   height: '5%',
   width: '25%',
   shrink: true,
-  name: 'Movie Sound',
-  content: 'Movie Sound',
+  name: 'Tone Sound',
+  content: 'Tone Sound',
   style: {
     bg: 'green',
     focus: {
@@ -140,8 +140,7 @@ var movies_sound_button = blessed.button({
 });
 
 movies_sound_button.on('press', function() {
-  sonicpi.play(300)
- 
+  sonicpi.tone('C')
 });
 
 var atmos_sound_button = blessed.button({
@@ -154,7 +153,7 @@ var atmos_sound_button = blessed.button({
   height: '5%',
   width: '25%',
   shrink: true,
-  name: 'Atmos Sound',
+  name: 'Random Sound',
   content: 'Atmos Sound',
   style: {
     bg: 'yellow',
@@ -168,7 +167,7 @@ var atmos_sound_button = blessed.button({
 });
 
 atmos_sound_button.on('press', function() {
-  sonicpi.play(200)
+  sonicpi.random( )
 });
 
 
@@ -327,10 +326,10 @@ function osclog(text) {
 }
 
 function mqttlog(topic, body) {
-  //mqttbox.insertTop('{red-fg}'+moment().format(format)+'{/red-fg} {green-fg}'+topic+'{/green-fg}');
-  //mqttbox.insertTop('{grey-fg}'+body+'{/green-fg}');
+  mqttbox.insertTop('{red-fg}'+moment().format(format)+'{/red-fg} {green-fg}'+topic+'{/green-fg}');
+  mqttbox.insertTop('{grey-fg}'+body+'{/green-fg}');
   
- // screen.render();
+ screen.render();
 }
 
 function updateStatus(content) {

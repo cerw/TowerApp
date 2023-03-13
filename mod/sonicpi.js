@@ -77,6 +77,17 @@ function sample(filename) {
   })
 }
 
+function tone(filename) {
+  //screen.log("SonicPI Play Channel : "+channel)
+  sonicSend({
+    address: "/tone",
+    args: {
+      type: 'string',
+      value: filename
+    }
+  })
+}
+
 function motion(value) {
   //screen.log("SonicPI Monoti Channel : "+value)
   sonicSend({
@@ -100,11 +111,24 @@ function stop(channel) {
   })
 }
 
+function random(channel) {
+  //screen.log("SonicPI Stop Channel : "+channel)
+  sonicSend({
+    address: "/random",
+    args: {
+      type: 'float',
+      value: 0
+    }
+  })
+}
+
 
 module.exports.bind = bind
 module.exports.stop = stop
 module.exports.play = play
 module.exports.motion = motion
 module.exports.sample = sample
+module.exports.tone = tone
+module.exports.random = random
 
 

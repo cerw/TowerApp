@@ -10,8 +10,8 @@ mqttClient.on('message', function (topic, message) {
   // message is Buffer
   let parts = topic.split('/')
   // trinity_led_touch_1/binary_sensor/touch5/state
-  screen.log(message)
-  screen.log(topic)
+  // screen.log(message)
+  // screen.log(topic)
   if (parts[0] =='play' ) {
     // let value = message.toString()
     sonicpi.sample(message.toString())
