@@ -1,6 +1,7 @@
 const blessed = require('blessed')
 const sonicpi = require('./sonicpi')
 const system = require('./system')
+const mqttClient = require('./mqtt')
 const lights = require('./lights')
 const moment = require('moment');
 let format = 'D MMM HH:mm:ss';
@@ -78,7 +79,8 @@ var bpm_button = blessed.box({
   name: 'BPM',
   content: 'BPM',
   style: {
-    bg: 'blue',
+    bg: 'yellow',
+    fg: 'black',
     focus: {
       bg: 'red'
     },
@@ -102,7 +104,7 @@ var stop_sound_button = blessed.button({
   name: 'Stop Sound',
   content: 'Stop Sound',
   style: {
-    bg: 'blue',
+    bg: 'red',
     focus: {
       bg: 'red'
     },
@@ -143,6 +145,93 @@ movies_sound_button.on('press', function() {
   sonicpi.tone('C')
 });
 
+
+//
+var a_button = blessed.button({
+  parent: screen,
+  mouse: true,
+  keys: true,
+  shrink: true,
+  left: '25%',
+  top: '55%',
+  height: '5%',
+  width: '5%',
+  shrink: true,
+  name: 'Power A',
+  content: 'Power A',
+  style: {
+    bg: 'black',
+    fg: 'yellow',
+    focus: {
+      bg: 'red'
+    },
+    hover: {
+      bg: 'black'
+    }
+  }
+});
+
+a_button.on('press', function() {
+  
+  // is ON 
+  if(global.power_a) {
+    // go OFF
+    b_button.style.bg = 'red' 
+    mqttClient.publish('cmnd/tasmota_01F72B/POWER1', 'OFF')
+    global.power_a = false
+  } else {
+    b_button.style.bg = 'green' 
+    mqttClient.publish('cmnd/tasmota_01F72B/POWER1', 'ON')
+    global.power_a = true
+  }
+  
+  
+});
+
+
+var b_button = blessed.button({
+  parent: screen,
+  mouse: true,
+  keys: true,
+  shrink: true,
+  left: '30%',
+  top: '55%',
+  height: '5%',
+  width: '5%',
+  shrink: true,
+  name: 'Power B',
+  content: 'Power B',
+  style: {
+    bg: 'black',
+    fg: 'yellow',
+    focus: {
+      bg: 'red'
+    },
+    hover: {
+      bg: 'black'
+    }
+  }
+});
+
+b_button.on('press', function() {
+  // is ON 
+  if(global.power_b) {
+    // go OFF
+    b_button.style.bg = 'red' 
+    mqttClient.publish('cmnd/tasmota_01F72B/POWER2', 'OFF')
+    global.power_b = false
+  } else {
+    b_button.style.bg = 'green' 
+    mqttClient.publish('cmnd/tasmota_01F72B/POWER2', 'ON')
+    global.power_b = true
+  }
+  
+  
+});
+
+
+//
+
 var atmos_sound_button = blessed.button({
   parent: screen,
   mouse: true,
@@ -157,9 +246,10 @@ var atmos_sound_button = blessed.button({
   content: 'Atmos Sound',
   style: {
     bg: 'yellow',
-    focus: {
-      bg: 'red'
-    },
+    fg: 'black',
+    // focus: {
+    //   bg: 'red'
+    // },
     hover: {
       bg: 'black'
     }
@@ -169,7 +259,6 @@ var atmos_sound_button = blessed.button({
 atmos_sound_button.on('press', function() {
   sonicpi.random( )
 });
-
 
 
 var lights_on_button = blessed.button({
@@ -268,6 +357,8 @@ var oscbox = blessed.box({
   label: '{bold}{cyan-fg}OSC Log{/cyan-fg}{/bold}',
   left: '50%',
   top: '50%',
+  // scrollable: true,
+  // alwaysScroll: true,
   height: '25%',
   width: '50%',
   tags: true,

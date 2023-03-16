@@ -15,7 +15,10 @@ global.beat = 0
 
 global.playing = {}
 
-
+global.power_a = false
+global.power_b = false
+global.power_c = false
+global.power_d = false
 
 global.wifi = 0
 global.uptime = 0
@@ -92,7 +95,8 @@ function activityCheck (rerun = true) {
     sonicpi.play(200)
   }
   screen.updateStatus(activityStatus())
-  mqtt.publish('app/beat', 'app alive '+Date.now())
+  // TODO
+  // mqtt.publish('app/beat', 'app alive '+Date.now())
   //console.debug("redraw ",activityStatus())
   if(rerun) {
     setTimeout(activityCheck, 5000) // run every 10s

@@ -8,6 +8,14 @@
 * https://github.com/thermage/thermage
 
 
+## Sound
+
+* https://puredata.info/
+* https://blokas.io/patchbox-os/
+* https://github.com/karlstav/cava
+* https://github.com/projectM-visualizer/projectm
+* https://processing.org/
+
 # Wled
 
 ## Led 1 - A
