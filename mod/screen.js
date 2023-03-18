@@ -271,8 +271,8 @@ var lights_on_button = blessed.button({
   height: '5%',
   width: '25%',
   shrink: true,
-  name: 'Lights ON',
-  content: 'Lights ON',
+  name: 'Lights Off',
+  content: 'Lights Off',
   style: {
     bg: 'black',
     focus: {
@@ -285,7 +285,7 @@ var lights_on_button = blessed.button({
 });
 
 lights_on_button.on('press', function() {
-  lights.allLightRandom()
+  lights.allLightOff()
 });
 
 var lights_off_button = blessed.button({

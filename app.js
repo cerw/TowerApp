@@ -88,6 +88,7 @@ function activityCheck (rerun = true) {
     global.alive = 0
     screen.log('We are dead 🤢')
     system.say('Going stand by..')
+    // TOOD
     lights.allLightStandby()
     // movie sample
     sonicpi.play(300)
@@ -110,13 +111,13 @@ mqtt.on('message', function (topic, message) {
     const json = JSON.parse(message.toString())
     if (json.e === 'motion') {
       //sonicpi.motion()
-    //   let max = 200000
-    //   let point = max / 100
-    //   let amp = json.pixel / max
-    //   if(amp > 0.1) {
-    // //    sonicpi.motion(amp)
-    //   }
-      
+      let max = 200000
+      let point = max / 100
+      let amp = json.pixel / max
+      if(amp > 0.1) {
+       sonicpi.motion(amp)  
+      }
+  
       global.motion = 1
       
       if (!global.alive) {
@@ -150,7 +151,7 @@ mqtt.on('message', function (topic, message) {
 
 })
 
-lights.allLightRandom()
+// lights.allLightRandom()
 system.say('Tower Brain Started')
 sonicpi.play(100)
 sonicpi.play(200)

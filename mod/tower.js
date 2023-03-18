@@ -17,9 +17,14 @@ mqttClient.on('message', function (topic, message) {
     sonicpi.sample(message.toString())
     // screen.log('0'+parts[0])
     // screen.log('2'+parts[2])
-//    screen.touchlog("Invalid GPIO for topipc: "+ topic + " Parts: " + parts[2])
-  
   }
+
+  // if (parts[0] =='motion' ) {
+  //   // let value = message.toString()
+  //   sonicpi.sample(message.toString())
+  //   // screen.log('0'+parts[0])
+  //   // screen.log('2'+parts[2])
+  // }
   
 })
 

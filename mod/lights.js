@@ -2,22 +2,15 @@ const mqttClient = require('./mqtt')
 const screen = require('./screen');
 const system = require('./system');
 
-let boards = [
-  'esp_display',
- // 'trinity_led_touch_2'
-]
 
 let leds = [
-  'led_1',
-  'led_2',
-//  'led_3',
-  'led_30',
-  'led_31',
-  'led_32',
- // 'led_3_b',
-//  'led_3_c',
+  'a',
+  'b',
+  'c'
 ]
 
+// const effect_disco = '<?xml version="1.0" ?><vs><ac>128</ac><cl>255</cl><cl>160</cl><cl>0</cl><cs>0</cs><cs>0</cs><cs>0</cs><ns>0</ns><nr>1</nr><nl>0</nl><nf>1</nf><nd>60</nd><nt>0</nt><fx>68</fx><sx>64</sx><ix>128</ix><fp>18</fp><wv>0</wv><ws>0</ws><ps>0</ps><cy>0</cy><ds>Led A</ds><ss>0</ss></vs>'
+// const effect_drip = '<?xml version="1.0" ?><vs><ac>0</ac><cl>255</cl><cl>160</cl><cl>0</cl><cs>0</cs><cs>0</cs><cs>0</cs><ns>0</ns><nr>1</nr><nl>0</nl><nf>1</nf><nd>60</nd><nt>0</nt><fx>68</fx><sx>64</sx><ix>128</ix><fp>2</fp><wv>0</wv><ws>0</ws><ps>0</ps><cy>0</cy><ds>Led A</ds><ss>0</ss></vs>'
 
 function allLightRandom() {
   screen.log("allLightRandom:")
@@ -29,7 +22,7 @@ function allLightRandom() {
 function allLightOn(effect = 'Flicker') {
   screen.log("allLightOn: "+effect)
   leds.forEach(led => { 
-    lightOn(effect, led)
+    lightOn(led)
   }); 
 }
 
@@ -49,23 +42,6 @@ function brightness(bright) {
   }); 
 }
 
-function bpm(tick) {
-  if(tick == 1) {
-   // brightness(50)
-  }
-
-  if(tick == 2) {
-    //brightness(150)
-  }
-
-  if(tick == 3) {
-   // brightness(200)
-  }
-
-  if(tick == 4) {
-   // brightness(90)
-  }
-}
 
 function allLightStandby() {
   screen.log("allLightStandby: ")
@@ -75,30 +51,21 @@ function allLightStandby() {
 }
 
 
-function lightOn(effect,led) {
+function lightOn(led) {
   screen.log("Ligts on led:"+led)
-  if (led === undefined) {
-    led =  'led_1'
-  }
-  if (effect === undefined) {
-    effect =  'Scan'
-  }
   // red by default
-  mqttClient.publish('esp_display/light/'+led+'/command', 
-    '{"effect":"'+effect+'","state":"ON","brightness":255,"color": '+randomColor()+'}'
+  mqttClient.publish('wled/'+led+'/api', 
+  '{ "on": true }'
   )
 }
 
 function lightOff(led) {
-  if (led === undefined) {
-    led =  'led_1'
-  }
-  screen.log("Ligts off led:"+led)
   
-  mqttClient.publish('esp_display/light/'+led+'/command', 
+  screen.log("Ligts off led:"+led)
+  mqttClient.publish('wled/'+led+'/api', 
   //'{"effect":"Scan","state":"ON","brightness":255,"color":{"r":255,"g":0,"b":0}}'
   // '{"effect":"None","state":"OFF","brightness":255,"color":{"r":255,"g":255,"b":255}}'
-  '{"state": "OFF"}'
+  '{ "on": false }'
   )
 }
 
@@ -106,61 +73,24 @@ function randomColor() {
   return '{"r": '+randomRgb()+', "g": '+randomRgb()+', "b": '+randomRgb()+'}'
 }
 
-function lightRandomWipe(led) {
-  //screen.log("Ligts off led:"+led)
-  if (led === undefined) {
-    led =  'led_1'
-  }
-  const effects  = ["Flicker","Strobe","Rainbow","FastScan","FastScanLong","Addressable Flicker","RedWipe","GreenWipe","BlueWipe","RedWhiteWipe","GreenWhiteWipe","BlueWhiteWipe"]
-  const random = Math.floor(Math.random() * effects.length);
-  let effect = effects[random]
-  //system.say(effect)
-  mqttClient.publish('esp_display/light/'+led+'/command', 
-    '{"effect": "'+effect+'","state": "ON","brightness": 230,"color": '+randomColor()+'}'
-  )
-}
 
 function lightRandom(led) {
-  //screen.log("Ligts off led:"+led)
-  if (led === undefined) {
-    led =  'led_1'
-  }
-  
-  mqttClient.publish('esp_display/light/'+led+'/command', 
-    '{"effect": "Flicker","state": "ON","brightness": 250,"color": '+randomColor()+'}'
+  screen.log("Ligts lightRandom led:"+led)
+  mqttClient.publish('wled/'+led+'/api', 
+    effect_disco
   )
 }
 
 
-function standby(led = 'led_1') {
+function standby(led) {
   screen.log("Ligts standby led:"+led)
   // red by default
-  mqttClient.publish('esp_display/light/'+led+'/command', 
-     '{"effect":"FastScan","state":"ON","brightness":150,"color": {"r": 255,"g": 0,"b": 0}}'
-    //'{"effect":"FastScan","state":"ON","brightness":200,"color": '+randomColor()+'}'
+  mqttClient.publish('wled/'+led+'/api', 
+  '{"on":true,"bri":128,"transition":7,"ps":-1,"pl":-1,"nl":{"on":false,"dur":60,"mode":1,"tbri":0,"rem":-1},"udpn":{"send":false,"recv":true},"lor":0,"mainseg":0,"seg":[{"id":0,"start":0,"stop":244,"len":244,"grp":1,"spc":0,"of":0,"on":true,"frz":false,"bri":255,"cct":127,"col":[[255,38,49,0],[0,0,0,0],[0,0,0,0]],"fx":68,"sx":64,"ix":162,"pal":63,"c1":128,"c2":128,"c3":16,"sel":true,"rev":false,"mi":false,"o1":false,"o2":false,"o3":false,"si":0,"m12":1}]}'
   )
 }
 
-function rainbow() {
-  screen.log("Ligts going rainbow")
-  let led =  'led_1'
-  // red by default
-  mqttClient.publish('esp_display/light/'+led+'/command', 
-    '{"effect":"Rainbow","state":"ON","brightness":235}'
-  )
-}
 
-function lightBright(value = 255) {
-  
-  //if (led === undefined) {
-    led =  'led_1'
-  //}
-  screen.log("lightBright on ligh: "+led+" value: "+value)
-  // red by default
-  mqttClient.publish('esp_display/light/'+led+'/command', 
-    '{"effect": "None","state":"ON","brightness":"'+value+'"}'
-  )
-}
 
 s = 255
 function randomRgb() {
@@ -170,15 +100,15 @@ function randomRgb() {
 
 
 module.exports.standby = standby
-module.exports.rainbow = rainbow
+// module.exports.rainbow = rainbow
 module.exports.on = lightOn;
 module.exports.off = lightOff;
 module.exports.random = lightRandom;
-module.exports.lightRandomWipe = lightRandomWipe;
-module.exports.lightBright = lightBright;
+// module.exports.lightRandomWipe = lightRandomWipe;
+module.exports.allLightOff = allLightOff;
 module.exports.allLightOn = allLightOn;
 module.exports.allLightStandby = allLightStandby;
 module.exports.allLightRandom = allLightRandom;
 
-module.exports.bpm = bpm
+// module.exports.bpm = bpm
 

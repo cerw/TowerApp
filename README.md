@@ -18,17 +18,24 @@
 
 # Wled
 
+https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes
 ## Led 1 - A
- http://192.168.30.105/
+ http://192.168.30.105/ 
+ 300 leds - 5m
+ http://led-a.local
+ Mac: 4cebd6434acc
 
 ## Led 2 - B 
- http://192.168.30.106/
+http://192.168.30.106/ ??
 
  ## Led 3 - C 
-  http://192.168.30.111/
+https://192.168.30.135/
+144 leds
+http://led-c.local
+Mac: 08b61fc0f708
 
 ## Power
-  http://192.168.30.111/
+  http://192.168.30.111/ -> 192.168.30.110	
 
 
 # Content
