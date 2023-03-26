@@ -93,6 +93,11 @@ function activityCheck (rerun = true) {
     sonicpi.play(300)
     // aroma
     sonicpi.play(200)
+
+    mqttClient.publish("cmnd/tasmota_01F72B/POWER1", "ON");
+    mqttClient.publish("cmnd/tasmota_01F72B/POWER2", "ON");
+    mqttClient.publish("cmnd/tasmota_01F72B/POWER3", "ON");
+    mqttClient.publish("cmnd/tasmota_01F72B/POWER4", "ON");
   }
   screen.updateStatus(activityStatus())
   // TODO

@@ -32,7 +32,10 @@ function welcome() {
   // sonicpi.play(200)
   //lights.allLightStandby()
   lights.allLightOn('RedWhiteWipe')
+  mqttClient.publish("cmnd/tasmota_01F72B/POWER1", "ON");
   mqttClient.publish("cmnd/tasmota_01F72B/POWER2", "ON");
+  mqttClient.publish("cmnd/tasmota_01F72B/POWER3", "ON");
+  mqttClient.publish("cmnd/tasmota_01F72B/POWER4", "ON");
 
 }
 
