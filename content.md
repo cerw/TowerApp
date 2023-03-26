@@ -275,3 +275,20 @@ This is your announcer, signing off. Yippee ki-yay, motherf***ers!"
 * Location: "You're currently standing in the middle of the Australian desert, where the only thing more rare than water is a good Wi-Fi signal."
 
 * Time and date: "It's [Day], [Month] [Date], [Year], and the time is currently [Time]. Time to ditch your Zoom calls and live in the moment!"
+
+
+Greeting:
+
+Good morning, listeners!
+Hello, everyone!
+Welcome to our show!
+Time and Date:
+
+It's currently 10:30 AM on March 11th.
+Today is Thursday, March 11th.
+It's almost the weekend!
+Number of People:
+
+We have over 100 guests today.
+Join the thousands of people listening in.
+Thanks for tuning in with us!

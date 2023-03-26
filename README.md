@@ -16,6 +16,25 @@
 * https://github.com/projectM-visualizer/projectm
 * https://processing.org/
 
+
+# Network 
+
+
+admin
+
+Wifi: TowerWifi
+pass: aruma2023
+
+# Nodes
+
+10.0.0.1 - towerpi / mqtt, web
+10.0.0.2 - lazarus
+10.0.0.3 - led_c
+10.0.0.4 - power
+10.0.0.5 - led_a
+10.0.0.138 - router - http://10.0.0.138/0.1/gui/#/
+
+
 # Wled
 
 https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes
@@ -29,13 +48,17 @@ https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes
 http://192.168.30.106/ ??
 
  ## Led 3 - C 
-https://192.168.30.135/
+http://192.168.30.135/
+http://10.0.0.3 - Tower
+
 144 leds
 http://led-c.local
 Mac: 08b61fc0f708
 
 ## Power
-  http://192.168.30.111/ -> 192.168.30.110	
+http://192.168.30.111/ -> 192.168.30.110	
+http://10.0.0.4
+
 
 
 # Content
