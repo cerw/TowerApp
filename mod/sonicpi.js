@@ -67,8 +67,11 @@ function play(channel) {
 }
 
 function sample(filename) {
+	 const { exec } = require("child_process")
   //screen.log("SonicPI Play Channel : "+channel)
-  sonicSend({
+   //exec('aplay  "'+filename+'"')
+   
+   sonicSend({
     address: "/play",
     args: {
       type: 'string',
@@ -91,10 +94,10 @@ function tone(filename) {
 function motion(value) {
   //screen.log("SonicPI Monoti Channel : "+value)
   sonicSend({
-    address: "/motion",
+    address: "/tone",
     args: {
       type: 'float',
-      value: value
+      value: value * 10
     }
   })
 }

@@ -71,7 +71,6 @@ function activityStatus () {
 
 // Alive or dead?
 function activityCheck (rerun = true) {
-  screen.log('Actitivy check')
   if ((global.motion || global.touchactivity || global.keyactivity) && !global.alive) {
     // recent motion
     global.alive = 1
@@ -115,7 +114,7 @@ mqtt.on('message', function (topic, message) {
       let point = max / 100
       let amp = json.pixel / max
       if(amp > 0.1) {
-       sonicpi.motion(amp)  
+      // sonicpi.motion(amp)  
       }
   
       global.motion = 1
@@ -123,6 +122,7 @@ mqtt.on('message', function (topic, message) {
       if (!global.alive) {
         // we dead bring it back to live
         activityCheck(false)
+        system.say('Motion is on')
         screen.mqttlog('Motin started', json)
       }
     }
@@ -130,6 +130,7 @@ mqtt.on('message', function (topic, message) {
     if (json.e === 'end') {
       global.motion = 0
       activityCheck(false)
+      system.say('Motion is off')
       screen.mqttlog('Motind ended', json)
     }
   } else if(topic == 'esp_display/status') {
@@ -144,8 +145,10 @@ mqtt.on('message', function (topic, message) {
   } else if(topic == 'esp_display/sensor/touch_esp_wifi_signal/state') {  
       global.uptime = message.toString()
       screen.updateSystem(screen.systemStatus())
+  } else if(topic == 'network/dhcp') {
+     system.say('We got another one')
   } else {
-      screen.mqttlog(topic, message.toString())
+    //  screen.mqttlog(topic, message.toString())
   }
  
 
