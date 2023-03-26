@@ -139,18 +139,20 @@ mqtt.on('message', function (topic, message) {
       system.say('Motion is off')
       screen.mqttlog('Motind ended', json)
     }
-  } else if(topic == 'esp_display/status') {
+  } else if(topic == 'wled/a/status' || topic == 'wled/c/status') {
       // TODO only if they  from off -> online . track it.
        screen.log("Lights become "+message.toString())
        system.say('Lights are '+message.toString())
        global.lightactivity = 1
        screen.updateStatus(activityStatus())
-  } else if(topic == 'esp_display/sensor/touch_esp_wifi_signal/state') {  
-      global.wifi = message.toString()
-      screen.updateSystem(screen.systemStatus())
-  } else if(topic == 'esp_display/sensor/touch_esp_wifi_signal/state') {  
-      global.uptime = message.toString()
-      screen.updateSystem(screen.systemStatus())
+  } else if(topic == 'turtlecar/status') {  
+      screen.log("turtlecar become "+message.toString())
+      system.say('Turtle is '+message.toString())
+      // global.wifi = message.toString()
+      // screen.updateSystem(screen.systemStatus())
+  } else if(topic == 'tele/tasmota_01F72B/LWT') { 
+      screen.log("PowerSwitch become "+message.toString()) 
+      system.say('PowerSwitch is '+message.toString())
   } else if(topic == 'network/dhcp') {
      system.say('We got another one')
   } else {
