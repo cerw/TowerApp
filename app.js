@@ -33,6 +33,7 @@ const lights = require('./mod/lights')
 // const touch = require('./mod/touch')
 const tower = require('./mod/tower')
 const socket = require('./mod/socket')
+const mqttClient = require('./mod/mqtt')
 
 
 // Render the screen.
@@ -94,10 +95,10 @@ function activityCheck (rerun = true) {
     // aroma
     sonicpi.play(200)
 
-    mqttClient.publish("cmnd/tasmota_01F72B/POWER1", "ON");
-    mqttClient.publish("cmnd/tasmota_01F72B/POWER2", "ON");
-    mqttClient.publish("cmnd/tasmota_01F72B/POWER3", "ON");
-    mqttClient.publish("cmnd/tasmota_01F72B/POWER4", "ON");
+    mqttClient.publish("cmnd/tasmota_01F72B/POWER1", "OFF");
+    mqttClient.publish("cmnd/tasmota_01F72B/POWER2", "OFF");
+    mqttClient.publish("cmnd/tasmota_01F72B/POWER3", "OFF");
+    mqttClient.publish("cmnd/tasmota_01F72B/POWER4", "OFF");
   }
   screen.updateStatus(activityStatus())
   // TODO
