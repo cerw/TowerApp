@@ -27,11 +27,13 @@ function say(text) {
 
 function welcome() {
   screen.log('Welcome 👋🏼')
-  say('Hello human')
+  say('Hello human welcome')
   // play melodic sound
-  sonicpi.play(200)
+  // sonicpi.play(200)
   //lights.allLightStandby()
   lights.allLightOn('RedWhiteWipe')
+  mqttClient.publish("cmnd/tasmota_01F72B/POWER2", "ON");
+
 }
 
 
