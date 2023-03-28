@@ -67,7 +67,7 @@ function play(channel) {
 }
 
 function sample(filename) {
-	 const { exec } = require("child_process")
+	// const { exec } = require("child_process")
   //screen.log("SonicPI Play Channel : "+channel)
    //exec('aplay  "'+filename+'"')
    
@@ -79,6 +79,8 @@ function sample(filename) {
     }
   })
 }
+
+
 
 function tone(filename) {
   //screen.log("SonicPI Play Channel : "+channel)
@@ -101,6 +103,18 @@ function motion(value) {
     }
   })
 }
+
+function movie(value) {
+  //screen.log("SonicPI Monoti Channel : "+value)
+  sonicSend({
+    address: "/movie",
+    args: {
+      type: 'float',
+      value: value * 10
+    }
+  })
+}
+
 
 
 function stop(channel) {
@@ -133,5 +147,7 @@ module.exports.motion = motion
 module.exports.sample = sample
 module.exports.tone = tone
 module.exports.random = random
+module.exports.movie = movie
+
 
 

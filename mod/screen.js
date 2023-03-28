@@ -309,7 +309,7 @@ var atmos_sound_button = blessed.button({
   width: "25%",
   shrink: true,
   name: "Random Sound",
-  content: "Ranom Sound",
+  content: "Random Sound",
   style: {
     bg: "yellow",
     fg: "black",

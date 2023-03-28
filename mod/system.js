@@ -27,7 +27,7 @@ function say(text) {
 
 function welcome() {
   screen.log('Welcome 👋🏼')
-  say('Hello human welcome')
+  // say('Hello human welcome')
   // play melodic sound
   // sonicpi.play(200)
   //lights.allLightStandby()
@@ -36,6 +36,8 @@ function welcome() {
   mqttClient.publish("cmnd/tasmota_01F72B/POWER2", "ON");
   mqttClient.publish("cmnd/tasmota_01F72B/POWER3", "ON");
   mqttClient.publish("cmnd/tasmota_01F72B/POWER4", "ON");
+
+  mqttClient.publish("tower/greeting", "ON");
 
 }
 
