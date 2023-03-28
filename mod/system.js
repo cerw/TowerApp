@@ -23,9 +23,9 @@ function say(text) {
 function welcome() {
   screen.log('Welcome 👋🏼')
   // say('Hello human welcome')
-  // lights.allLightRandom();
-  // tower.powerOn();
-  // mqttClient.publish("tower/greeting", "ON");
+  lights.allLightRandom();
+  tower.powerOn();
+  mqttClient.publish("tower/greeting", "ON");
   sonicpi.siren()
 
 }
