@@ -33,15 +33,6 @@ function allLightOff() {
   }); 
 }
 
-function brightness(bright) {
-  screen.log("brightness: "+bright)
-  leds.forEach(led => { 
-    mqttClient.publish('esp_display/light/'+led+'/command', 
-    '{"state":"ON","brightness":'+bright+'}'
-    )
-  }); 
-}
-
 
 function allLightStandby() {
   screen.log("allLightStandby: ")

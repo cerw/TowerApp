@@ -105,10 +105,7 @@ function activityCheck(rerun = true) {
     // aroma
     //sonicpi.play(200)
 
-    mqtt.publish("cmnd/tasmota_01F72B/POWER1", "OFF");
-    mqtt.publish("cmnd/tasmota_01F72B/POWER2", "OFF");
-    mqtt.publish("cmnd/tasmota_01F72B/POWER3", "OFF");
-    mqtt.publish("cmnd/tasmota_01F72B/POWER4", "OFF");
+    tower.powerOff();
   }
   screen.updateStatus(activityStatus());
   // TODO
@@ -160,13 +157,13 @@ mqtt.on("message", function (topic, message) {
   } else if (topic == "wled/a/status" ) {
     // TODO only if they  from off -> online . track it.
     screen.log("Lights A become " + message.toString());
-    system.say("Lights A are " + message.toString());
+    // system.say("Lights A are " + message.toString());
     global.lightactivity = 1;
     screen.updateStatus(activityStatus());
   } else if (topic ==  "wled/c/status") {
     // TODO only if they  from off -> online . track it.
     screen.log("Lights C become " + message.toString());
-    system.say("Lights C are " + message.toString());
+    // system.say("Lights C are " + message.toString());
     global.lightactivity = 1;
     screen.updateStatus(activityStatus());
   } else if (topic == "turtlecar/status") {
@@ -183,7 +180,7 @@ mqtt.on("message", function (topic, message) {
     }
   } else if (topic == "tele/tasmota_01F72B/LWT") {
     screen.log("PowerSwitch become " + message.toString());
-    system.say("PowerSwitch is " + message.toString());
+    // system.say("PowerSwitch is " + message.toString());
   } else if (topic == "network/dhcp") {
     // system.say("We got another one");
   } else {

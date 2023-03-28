@@ -3,6 +3,7 @@ const sonicpi = require("./sonicpi");
 const system = require("./system");
 const mqttClient = require("./mqtt");
 const lights = require("./lights");
+const tower = require("./tower");
 const moment = require("moment");
 let format = "D MMM HH:mm:ss";
 
@@ -352,6 +353,34 @@ var lights_on_button = blessed.button({
 lights_on_button.on("press", function () {
   lights.allLightOff();
 });
+
+var all_off_button = blessed.button({
+  parent: screen,
+  mouse: true,
+  keys: true,
+  shrink: true,
+  left: "25%",
+  top: "65%",
+  height: "5%",
+  width: "25%",
+  shrink: true,
+  name: "All Off",
+  content: "All Off",
+  style: {
+    bg: "black",
+    focus: {
+      bg: "yellow",
+    },
+    hover: {
+      bg: "black",
+    },
+  },
+});
+
+all_off_button.on("press", function () {
+  lights.allLightOff();
+  tower.powerOff();
+ });
 
 var lights_off_button = blessed.button({
   parent: screen,

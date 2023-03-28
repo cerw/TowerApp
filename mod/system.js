@@ -2,6 +2,7 @@ const lights = require('./lights');
 const screen = require('./screen');
 const sonicpi = require('./sonicpi')
 const mqttClient = require('./mqtt')
+const tower = require('./tower')
 
 function say_old(text) {
   const { exec } = require("child_process")
@@ -26,10 +27,7 @@ function welcome() {
   
   //lights.allLightStandby()
   lights.allLightOn('RedWhiteWipe')
-  mqttClient.publish("cmnd/tasmota_01F72B/POWER1", "ON");
-  mqttClient.publish("cmnd/tasmota_01F72B/POWER2", "ON");
-  mqttClient.publish("cmnd/tasmota_01F72B/POWER3", "ON");
-  mqttClient.publish("cmnd/tasmota_01F72B/POWER4", "ON");
+  tower.powerOn();
   mqttClient.publish("tower/greeting", "ON");
 
 }
