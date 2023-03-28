@@ -128,6 +128,17 @@ function stop(channel) {
   })
 }
 
+function siren()
+{
+  sonicSend({
+    address: "/siren",
+    args: {
+      type: 'float',
+      value: 0
+    }
+  })
+}
+
 function random(channel) {
   //screen.log("SonicPI Stop Channel : "+channel)
   sonicSend({
@@ -148,6 +159,7 @@ module.exports.sample = sample
 module.exports.tone = tone
 module.exports.random = random
 module.exports.movie = movie
+module.exports.siren = siren
 
 
 

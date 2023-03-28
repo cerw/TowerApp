@@ -183,6 +183,7 @@ mqtt.on("message", function (topic, message) {
     // system.say("PowerSwitch is " + message.toString());
   } else if (topic == "network/dhcp") {
     // system.say("We got another one");
+    sonicpi.siren();
   } else {
     //  screen.mqttlog(topic, message.toString())
   }
