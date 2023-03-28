@@ -157,10 +157,16 @@ mqtt.on("message", function (topic, message) {
       system.say("Motion is off");
       screen.mqttlog("Motind ended", json);
     }
-  } else if (topic == "wled/a/status" || topic == "wled/c/status") {
+  } else if (topic == "wled/a/status" ) {
     // TODO only if they  from off -> online . track it.
-    screen.log("Lights become " + message.toString());
-    system.say("Lights are " + message.toString());
+    screen.log("Lights A become " + message.toString());
+    system.say("Lights A are " + message.toString());
+    global.lightactivity = 1;
+    screen.updateStatus(activityStatus());
+  } else if (topic ==  "wled/c/status") {
+    // TODO only if they  from off -> online . track it.
+    screen.log("Lights C become " + message.toString());
+    system.say("Lights C are " + message.toString());
     global.lightactivity = 1;
     screen.updateStatus(activityStatus());
   } else if (topic == "turtlecar/status") {
