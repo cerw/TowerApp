@@ -327,6 +327,37 @@ atmos_sound_button.on("press", function () {
   sonicpi.random();
 });
 
+
+var welcome_button = blessed.button({
+  parent: screen,
+  mouse: true,
+  keys: true,
+  shrink: true,
+  left: "25%",
+  top: "60%",
+  height: "5%",
+  width: "25%",
+  shrink: true,
+  name: "Welcome",
+  content: "Welcome",
+  style: {
+    bg: "grey",
+    fg: "black",
+    // focus: {
+    //   bg: 'red'
+    // },
+    hover: {
+      bg: "black",
+    },
+  },
+});
+
+welcome_button.on("press", function () {
+  system.welcome();
+});
+
+
+
 var lights_on_button = blessed.button({
   parent: screen,
   mouse: true,
@@ -409,6 +440,36 @@ lights_off_button.on("press", function () {
   //  lights.standby('led_1')
   lights.allLightStandby();
 });
+
+
+var lights_off_button = blessed.button({
+  parent: screen,
+  mouse: true,
+  keys: true,
+  shrink: true,
+  left: "25$",
+  top: "70%",
+  height: "5%",
+  width: "25%",
+  shrink: true,
+  name: "Lights random",
+  content: "Lights random",
+  style: {
+    bg: "blue",
+    focus: {
+      bg: "red",
+    },
+    hover: {
+      bg: "black",
+    },
+  },
+});
+
+lights_off_button.on("press", function () {
+  lights.allLightRandom();
+});
+
+
 
 // listen and port box// Create a box perfectly centered horizontally and vertically.
 var netbox = blessed.box({

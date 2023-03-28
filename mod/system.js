@@ -23,10 +23,7 @@ function say(text) {
 function welcome() {
   screen.log('Welcome 👋🏼')
   // say('Hello human welcome')
-  // play melodic sound
-  
-  //lights.allLightStandby()
-  lights.allLightOn('RedWhiteWipe')
+  lights.allLightRandom();
   tower.powerOn();
   mqttClient.publish("tower/greeting", "ON");
 
