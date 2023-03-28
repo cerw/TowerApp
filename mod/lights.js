@@ -69,7 +69,7 @@ function lightRandom(led) {
   // let fx = Math.floor(Math.random() * 117) + 1;
   mqttClient.publish(
     "wled/" + led + "/api",
-    '{"on": true, "transition": 7, "seg": [{"fx": "r"}]}'
+    '{"on": true, "transition": 7, "seg": [{"fx": "r","pal": "r"}]}'
   );
 }
 
