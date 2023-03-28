@@ -176,7 +176,7 @@ mqtt.on("message", function (topic, message) {
       system.say("Turtle is " + message.toString());
       sonicpi.sample("/srv/coco.wav");
     } else {
-      system.say("Turtle is leaving us, till next time");
+      // system.say("Turtle is leaving us, till next time");
     }
   } else if (topic == "tele/tasmota_01F72B/LWT") {
     screen.log("PowerSwitch become " + message.toString());

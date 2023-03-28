@@ -131,7 +131,7 @@ function stop(channel) {
 function siren()
 {
   sonicSend({
-    address: "/siren",
+    address: "/sirens",
     args: {
       type: 'float',
       value: 0
