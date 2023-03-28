@@ -91,9 +91,9 @@ function activityCheck (rerun = true) {
     // TOOD
     lights.allLightStandby()
     // movie sample
-    sonicpi.play(300)
+	  // sonicpi.play(300)
     // aroma
-    sonicpi.play(200)
+	  //sonicpi.play(200)
 
     mqttClient.publish("cmnd/tasmota_01F72B/POWER1", "OFF");
     mqttClient.publish("cmnd/tasmota_01F72B/POWER2", "OFF");
@@ -149,7 +149,13 @@ mqtt.on('message', function (topic, message) {
       screen.log("turtlecar become "+message.toString())
       system.say('Turtle is '+message.toString())
       // global.wifi = message.toString()
+	
       // screen.updateSystem(screen.systemStatus())
+      if(message.toString() == 'online') {
+      sonicpi.sample("/srv/coco.wav")
+      } else {
+	 system.say('Turtle is leaving us, till next time')     
+      }
   } else if(topic == 'tele/tasmota_01F72B/LWT') { 
       screen.log("PowerSwitch become "+message.toString()) 
       system.say('PowerSwitch is '+message.toString())
