@@ -20,6 +20,13 @@ mqtt.on('message', function (topic, message) {
     // screen.log('2'+parts[2])
   }
 
+  if (parts[0] =='speak' ) {
+    // let value = message.toString()
+    sonicpi.speak(message.toString())
+    // screen.log('0'+parts[0])
+    // screen.log('2'+parts[2])
+  }
+
   // if (parts[0] =='motion' ) {
   //   // let value = message.toString()
   //   sonicpi.sample(message.toString())

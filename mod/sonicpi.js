@@ -81,6 +81,20 @@ function sample(filename) {
 }
 
 
+function speak(filename) {
+	// const { exec } = require("child_process")
+  //screen.log("SonicPI Play Channel : "+channel)
+   //exec('aplay  "'+filename+'"')
+   
+   sonicSend({
+    address: "/speak",
+    args: {
+      type: 'string',
+      value: filename
+    }
+  })
+}
+
 
 function tone(filename) {
   //screen.log("SonicPI Play Channel : "+channel)
@@ -99,18 +113,18 @@ function motion(value) {
     address: "/tone",
     args: {
       type: 'float',
-      value: value * 10
+      value: value
     }
   })
 }
 
 function movie(value) {
-  //screen.log("SonicPI Monoti Channel : "+value)
+  // screen.log("SonicPI Monoti Channel : "+value)
   sonicSend({
     address: "/movie",
     args: {
-      type: 'float',
-      value: value * 10
+      type: 'string',
+      value: 'movie man'
     }
   })
 }
@@ -160,6 +174,8 @@ module.exports.tone = tone
 module.exports.random = random
 module.exports.movie = movie
 module.exports.siren = siren
+module.exports.speak = speak
+
 
 
 

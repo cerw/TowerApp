@@ -5,6 +5,7 @@ const mqttClient = require("./mqtt");
 const lights = require("./lights");
 const tower = require("./tower");
 const moment = require("moment");
+const { exec } = require("child_process")
 let format = "D MMM HH:mm:ss";
 
 // Create a screen object.
@@ -65,28 +66,30 @@ var systemText = blessed.box({
 
 //
 
-var bpm_button = blessed.box({
+var movie_button = blessed.button({
   parent: screen,
   mouse: true,
   keys: true,
   shrink: true,
   left: "25%",
-  top: "50%",
-  height: "5%",
+  top: "35%",
+  height: "10%",
   width: "25%",
   shrink: true,
-  name: "BPM",
-  content: "BPM",
+  name: "Movie sound",
+  content: "Movie sound",
   style: {
-    bg: "yellow",
-    fg: "black",
+  bg: "green",
     focus: {
-      bg: "red",
+      bg: "white",
     },
     hover: {
       bg: "black",
     },
   },
+});
+movie_button.on("press", function () {
+  sonicpi.movie()
 });
 
 //
@@ -96,12 +99,12 @@ var stop_sound_button = blessed.button({
   keys: true,
   shrink: true,
   left: 0,
-  top: "50%",
-  height: "5%",
+  top: "25%",
+  height: "10%",
   width: "25%",
   shrink: true,
-  name: "Stop Sound",
-  content: "Stop Sound",
+  name: "Restart Sonicpi",
+  content: "Restart Sonicpi",
   style: {
     bg: "red",
     focus: {
@@ -114,7 +117,8 @@ var stop_sound_button = blessed.button({
 });
 
 stop_sound_button.on("press", function () {
-  sonicpi.play(100);
+  exec('cat /srv/sonic-pi-init.rb | sonic_pi4')
+  exec('/usr/local/bin/sonic_pi4 stop')
 });
 
 var movies_sound_button = blessed.button({
@@ -123,8 +127,8 @@ var movies_sound_button = blessed.button({
   keys: true,
   shrink: true,
   left: 0,
-  top: "55%",
-  height: "5%",
+  top: "35%",
+  height: "10%",
   width: "25%",
   shrink: true,
   name: "Tone Sound",
@@ -141,7 +145,7 @@ var movies_sound_button = blessed.button({
 });
 
 movies_sound_button.on("press", function () {
-  sonicpi.tone("C");
+  sonicpi.tone(Math.floor(Math.random() * 100).toString());
 });
 
 //
@@ -305,8 +309,8 @@ var atmos_sound_button = blessed.button({
   keys: true,
   shrink: true,
   left: 0,
-  top: "60%",
-  height: "5%",
+  top: "45%",
+  height: "10%",
   width: "25%",
   shrink: true,
   name: "Random Sound",
@@ -318,7 +322,7 @@ var atmos_sound_button = blessed.button({
     //   bg: 'red'
     // },
     hover: {
-      bg: "black",
+      bg: "red",
     },
   },
 });
@@ -334,14 +338,14 @@ var welcome_button = blessed.button({
   keys: true,
   shrink: true,
   left: "25%",
-  top: "60%",
-  height: "5%",
+  top: "45%",
+  height: "10%",
   width: "25%",
   shrink: true,
   name: "Welcome",
   content: "Welcome",
   style: {
-    bg: "grey",
+    bg: "white",
     fg: "black",
     // focus: {
     //   bg: 'red'
@@ -391,16 +395,16 @@ var all_off_button = blessed.button({
   keys: true,
   shrink: true,
   left: "25%",
-  top: "65%",
-  height: "5%",
+  top: "25%",
+  height: "10%",
   width: "25%",
   shrink: true,
   name: "All Off",
   content: "All Off",
   style: {
-    bg: "black",
+    bg: "blue",
     focus: {
-      bg: "yellow",
+      bg: "white",
     },
     hover: {
       bg: "black",
@@ -411,6 +415,7 @@ var all_off_button = blessed.button({
 all_off_button.on("press", function () {
   lights.allLightOff();
   tower.powerOff();
+  exec('sonic_pi4 stop')
  });
 
 var lights_off_button = blessed.button({
@@ -472,18 +477,7 @@ lights_off_button.on("press", function () {
 
 
 // listen and port box// Create a box perfectly centered horizontally and vertically.
-var netbox = blessed.box({
-  parent: screen,
-  label: "{bold}{cyan-fg}Touch Log{/cyan-fg}{/bold}",
-  left: "0",
-  top: "25%",
-  height: "25%",
-  width: "50%",
-  tags: true,
-  border: {
-    type: "line",
-  },
-});
+
 
 // listen and port box// Create a box perfectly centered horizontally and vertically.
 var mqttbox = blessed.box({
@@ -508,7 +502,7 @@ var oscbox = blessed.box({
   top: "50%",
   // scrollable: true,
   // alwaysScroll: true,
-  height: "25%",
+  height: "50%",
   width: "50%",
   tags: true,
   border: {
@@ -520,20 +514,20 @@ screen.append(oscbox);
 
 // status
 
-var touchBox = blessed.box({
-  parent: screen,
-  label: "{bold}{cyan-fg}Touch Status{/cyan-fg}{/bold}",
-  left: "50%",
-  top: "75%",
-  height: "25%",
-  width: "50%",
-  tags: true,
-  border: {
-    type: "line",
-  },
-});
+// var touchBox = blessed.box({
+//   parent: screen,
+//   label: "{bold}{cyan-fg}Touch Status{/cyan-fg}{/bold}",
+//   left: "50%",
+//   top: "75%",
+//   height: "25%",
+//   width: "50%",
+//   tags: true,
+//   border: {
+//     type: "line",
+//   },
+// });
 
-screen.append(touchBox);
+// screen.append(touchBox);
 
 // Focus our element.
 logbox.focus();
@@ -561,16 +555,16 @@ function weblog(text) {
   screen.render();
 }
 
-function touchlog(text) {
-  netbox.insertTop(
-    "{red-fg}" +
-      moment().format(format) +
-      "{/red-fg} {green-fg}" +
-      text +
-      "{/green-fg}"
-  );
-  screen.render();
-}
+// function touchlog(text) {
+//   netbox.insertTop(
+//     "{red-fg}" +
+//       moment().format(format) +
+//       "{/red-fg} {green-fg}" +
+//       text +
+//       "{/green-fg}"
+//   );
+//   screen.render();
+// }
 
 function osclog(text) {
   oscbox.insertTop(
@@ -616,16 +610,7 @@ function updateSystem(content) {
   );
 }
 
-function updateTouch(content) {
-  touchBox.setContent(
-    "{red-fg}" +
-      moment().format(format) +
-      "{/red-fg} {green-fg}" +
-      content +
-      "{/green-fg}"
-  );
-}
-
+// 
 function systemStatus() {
   let string =
     "\n" +
@@ -661,12 +646,12 @@ screen.key(["escape", "q", "C-c"], function (ch, key) {
 
 module.exports.screen = screen;
 module.exports.log = log;
-module.exports.touchlog = touchlog;
+// module.exports.touchlog = touchlog;
 module.exports.weblog = weblog;
 module.exports.osclog = osclog;
 module.exports.mqttlog = mqttlog;
 module.exports.beat = beat;
 module.exports.updateStatus = updateStatus;
-module.exports.updateTouch = updateTouch;
+// module.exports.updateTouch = updateTouch;
 module.exports.updateSystem = updateSystem;
 module.exports.systemStatus = systemStatus;

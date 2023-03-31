@@ -142,7 +142,7 @@ mqtt.on("message", function (topic, message) {
         // we dead bring it back to live
         global.motion = 1;
         activityCheck(false);
-        system.say("Motion is on");
+        // system.say("Motion is on");
         screen.mqttlog("Motin started", json);
         system.welcome();
       }
@@ -151,7 +151,7 @@ mqtt.on("message", function (topic, message) {
     if (json.e === "end") {
       global.motion = 0;
       activityCheck(false);
-      system.say("Motion is off");
+      system.say("Going stand by");
       screen.mqttlog("Motind ended", json);
     }
   } else if (topic == "wled/a/status" ) {
@@ -173,10 +173,11 @@ mqtt.on("message", function (topic, message) {
 
     // screen.updateSystem(screen.systemStatus())
     if (message.toString() == "online") {
-      system.say("Turtle is " + message.toString());
+      system.say("Mr Turtle is " + message.toString());
       sonicpi.sample("/srv/coco.wav");
-    } else {
-      // system.say("Turtle is leaving us, till next time");
+    } else if(message.toString() == "offline") {
+      system.say("Turtle is leaving us, till next time!");
+      sonicpi.sample("/srv/sad.wav");
     }
   } else if (topic == "tele/tasmota_01F72B/LWT") {
     screen.log("PowerSwitch become " + message.toString());
@@ -184,8 +185,10 @@ mqtt.on("message", function (topic, message) {
   } else if (topic == "network/dhcp") {
     // system.say("We got another one");
     sonicpi.siren();
+  } else if (topic == "play/movie") {
+    sonicpi.movie();
   } else {
-    //  screen.mqttlog(topic, message.toString())
+    screen.mqttlog(topic, message.toString())
   }
 });
 
